@@ -1,0 +1,281 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Bitcount+Prop+Single+Ink:wght@100..900&display=swap');
+/* *-це додавання стилів повністю для всіх об'єктів тому що браузер за замовчуваням це додає*/
+*{padding: 0;
+  margin: 0;}
+/*це приклади додавання стилів через class*/
+.start{color: orange;}
+/*а це приклад через id він має мати лише одне значення*/
+#idi{color: rgb(13, 235, 161); background-color: black;}
+#start2{color: red;}
+.one2{color: blue;}
+/*можна писати і так і так !якщо id наприклад є разом  з класом */
+.one2#one {color: blue;}
+/*можна також писати це до div наприклад*/
+div p{color: rgb(21, 2, 14);}
+
+
+              /*псевдо КЛАСИ та ЕЛЕМЕНТИ*/
+.link {color: yellow;
+    /*none забирає початкове підкреслення посилання
+      overline лінія зверху 
+      line-through перечеркнутий текст*/
+text-decoration:overline ;}
+
+  /* псевдоклас який спрацьовує при наведені мишкою на посилання*/
+.link:hover {text-decoration: underline;
+             color: blue;
+             cursor: pointer; }
+  /*теж саме тільки спрацьовує при натисканні*/
+.link:active {text-decoration-color: aqua; color: black;}
+ /*висвічує колір коли вже було натиснуто*/
+ .link:visited{color: red;}
+ /*width ширина 
+  focus принаведені курсору
+  disabled неактивне*/
+ input{width: 100px;}
+ input:focus{width: 200px;}
+ input:disabled{width: 250px;}
+ /*empti шукає порожні div
+   not(empti) шукає непорожні div*/
+ div:empty{color: rgb(12, 232, 89);}
+ div:not(:empty){background-color: red;}
+
+/*after (псевдоелемент)дописання після елементу
+  before до елементу*/
+  /*в загальному це створенна css частина до тексту яку можна контролювати*/
+p.textt:not(:empty)::before{content:"125" ;
+                 color: rgb(227, 16, 154);
+                 text-decoration: underline;
+                 cursor: pointer;}
+/*not empty ми додали щоб перший параграф не добавлявся*/
+/*також щоб щось вивести ми можемо використовувати атрибути*/
+p.textt:empty::after {content:attr(title);
+                      color: rgb(10, 3, 0);
+                      text-decoration: line-through;
+                       cursor: pointer; }
+/*first-letter вибірка першого символу з тексту
+  first-line вибірка першого рядка тексту*/
+p.textt:not(:empty)::first-letter{color: blue;
+                                  font-size: 25px;} 
+/*Добавляємо стиль до першого або останього об'єкту (у нашому випадку параграф)
+p.last-of-type{font-size: 1px;
+color: gray;} /* 
+
+       /*РОБОТА З ФОНОВИМИ КАРТИНКАМИ*/
+
+       /*приклад вставлення картинки як фон*/
+       /*репіт це повтор картинки no-repeat, repeat-x-y*/
+ body{/*background-image:url(../Images/foto.webp)ss;
+                           background-repeat: ;
+                          background-position: ;
+                          також backgraund-size cover- закриває 100% body*/
+                         background: #390707 url(../Images/foto.webp); 
+                         background-size:cover;
+                         height: px;} 
+                         /* також можна прописати height100% а щоб точно спрацювало 100vh*/
+    /*або можна зробити простіше, як вгорі, 
+    тобто якщо не буде картинки то буде колір, і можна вписати все те саме*/ 
+         
+#noblock{background-color: rgb(170, 37, 37);
+       width: 200px;
+       height: 200px; !important}
+       /*important- щоб тег div не перебивав #block(z)
+        background-attachment-для фіксації зображення */ 
+#noblock2{background-image: url(../Images/it-programer.jpg);
+           width: 100%;
+       height: 200px;
+      background-attachment: fixed;}
+         
+                    /*Стилі для тексту*/
+
+    /*text-align-позиція тексту,
+        justify-розтягує на всю сторінку*/
+    /*bold-жирний весь текст
+        lighter-нежирний текст*/
+    /*text-transform-це те в якому реєстрі буде текст
+         lowercase-маленькі букви
+         uppercase-великі букви
+         capitalize-кожне слово з великої букви*/
+    /* line-height-відступ між рядками
+       word-spacing-розрив між словами в рядку
+       etter-spacing-розрив між символами можнавказувати від'ємні значення
+       font-family-вибір шрифту*/
+p.urok{
+  color: antiquewhite;
+  text-align: center;
+  font-size: 20px;
+  font-style:italic;
+  font-weight: bold;
+  text-transform:capitalize ;
+  line-height:40px;
+  word-spacing: 15px;
+  letter-spacing: 5px;
+  font-family:'Bitcount Prop Single Ink' ;
+}/*для шрифту також google fonts його завантажуємо або імпортуємо, приклад на початку*/
+p.urok > b {
+  font-style: normal;
+  text-decoration:underline ;
+  text-decoration-color: red;
+  color: rgb(28, 14, 221);
+  cursor: pointer;
+}
+            
+          /*стилі для блоків!*/
+/*border-обводка для блоку її також можна додавати до кожної сторони окремо
+   solid-суцільна
+   dotted-крапками
+   dashed-рисками
+   15%-квадрат*/
+#block{
+  background:red;
+  color: aliceblue;
+  width: 300px;
+  height: 200px; 
+  border:5px solid #555;
+  border-top: 0;
+  border-right: 5px dashed #555;
+  border-radius:10px 40px 40px;
+  border-bottom-right-radius:0% ;
+  }
+/* opacity-вплив на прозорість об'єкту
+   margin-зовніщній відступ
+   padding-внутрішній відступ(розміри) */
+   /* в html div(#block2)-блочний об'єкт
+             span-(.block)строчний об'єкт(не можна вказати висоту наприклад)*/
+   /* display:inline- робить їх обох строчними
+              block-блочними
+              table(це теж блочний елемент)-поводиться як таблиця*/
+  #block2, .block{
+  background:rgb(240, 212, 3);
+  color: aliceblue;
+  width: 300px;
+  height: 200px; 
+  border:5px solid red;
+  border-top: 0;
+  border-right: 5px dashed red;
+  border-radius:50px 60px;
+  border-bottom-right-radius:0% ;
+  opacity: 0.4;
+  background-attachment: fixed;
+
+  margin:20px 150px ;
+  margin-left: 50px;
+  padding: 50px 22px;
+
+  display: block;
+}
+          /* УРОК ПОЗІЦІОНУВАННЯ БЛОКІВ*/
+
+  /*float- техноголія
+    (ще є CSgri d та flexbox)*/
+.five{width: 200px;
+      height: 200px;
+      margin: 20px;}
+#first{background: yellow;
+       float:right ;
+}
+/*якщо ввести два рази right то це буде сторона розташування*/
+#too{background: blue;
+      float: right;
+}
+/* line-height- якщо ввести те саме значення що і height текст буде по центру*/
+#header, #footer{
+  width: 100%;
+  height: 70px;
+  text-align:center;;
+  background: blanchedalmond;
+  color: rgb(147, 7, 240);
+  line-height:70px ;
+float:left;}
+ #header{border-bottom: 4px solid red;
+        margin-bottom: 80px;}
+/*z-index - послідовність накладання блоків
+            для цього потрібно position: relative*/
+ #footer{border-top: 4px solid red;
+         margin-top: 50px;
+        position: relative;
+        z-index: 2;}
+
+#main{width:20%;
+        margin-left: 5%;
+        background:sandybrown;
+        padding: 40px ;
+        color: white;
+    float: left;}
+
+/*постійно у float потрібно рахувати% 20+5+10+5<100 щоб все поміщалось*/
+#aside{width: 10%;
+       position: relative;
+      z-index: 1;
+         margin-left: 5%;
+         background: rgb(222, 222, 16);
+         padding: 40px ;
+         /*margin-top: 20px;*/
+         border: 2px solid silver;
+         /*relative для змінення позиції відносно теперішньої, для очей*/
+         position: relative; top: 80px; left: 70px;
+    float: left;}
+
+    /*absolute-забирає місцезнаходженя блоку і показує в іншому місці
+      fixed-фіксує*/
+.up{background: rgb(216, 248, 4);
+width: 50px;
+height: 50px;
+opacity: 0.7;
+line-height: 50px;
+border-color: silver;
+text-align: center;
+color: white;
+border-radius: 50%;
+position: fixed; top: 5%; left: 10%;
+cursor: pointer;}
+.up:hover{background: rgb(175, 242, 6);}
+
+
+
+       /*Урок: Робота зі списками*/
+
+       /*div id listen*/
+ #listen{background-color: white;}
+ .listen{background-color: white;} 
+ /*повертаємо назад маркери списків
+   -disk- для маркерів
+   -decimal- для пронумерованих*/
+ .list{ list-style-type: disc inside;
+        padding-left: 2.2rem;} 
+ .listen12{list-style: decimal inside ;
+           padding-left: 1.5rem ;} 
+            
+        /*Урок: Робота зі списками*/
+
+#menu{list-style: none;
+      display: block;
+      width:50%;
+      margin-left: 25%;
+      text-align: center;
+      margin-bottom: 20px;
+    } 
+    /*inline- як строчний елемент
+       padding-розмір зсередини*/
+#menu li{ display: inline;
+          background: white;
+          border: 2px solid silver;
+          padding: 0 5px;
+        border-radius: 2px;}
+#menu li:not(:last-of-type)  {
+                      margin-right: 20px;}
+#menu li:hover {
+  color:black;
+  background:silver;
+  border-radius: 5px;
+  cursor: pointer;
+}
+              /*................*/
+  
+
+
+
+
+       
+       
